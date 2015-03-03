@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nSU-7q-fM3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--First View Controller-->
+        <scene sceneID="hnG-Tk-Tjc">
+            <objects>
+                <viewController id="nSU-7q-fM3" customClass="FirstViewController" customModule="iOS_Swift_ColorPicker_Storyboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kqf-Bc-ska"/>
+                        <viewControllerLayoutGuide type="bottom" id="hfy-PJ-3BO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HFa-CI-8KM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uci-GV-QAk">
+                                <rect key="frame" x="236" y="531" width="128" height="30"/>
+                                <state key="normal" title="Show Color Picker">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BHZ-wM-yGi" kind="popoverPresentation" identifier="showColorPicker" popoverAnchorView="uci-GV-QAk" id="4xr-SC-a7l">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hfy-PJ-3BO" firstAttribute="top" secondItem="uci-GV-QAk" secondAttribute="bottom" constant="39" id="IKC-t1-Kby"/>
+                            <constraint firstAttribute="centerX" secondItem="uci-GV-QAk" secondAttribute="centerX" id="ra8-ge-XlI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8qU-Te-iLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="397"/>
+        </scene>
+        <!--Swift Color Picker View Controller-->
+        <scene sceneID="myr-5w-P7z">
+            <objects>
+                <viewController id="BHZ-wM-yGi" customClass="SwiftColorPickerViewController" customModule="iOS_Swift_ColorPicker" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YKY-Uv-rSu"/>
+                        <viewControllerLayoutGuide type="bottom" id="1qb-pU-mb0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="x6r-A5-l5L" customClass="SwiftColorView" customModule="iOS_Swift_ColorPicker">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="numColorsX">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="numColorsY">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="coloredBorderWidth">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="showGridLines" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3qP-a9-uU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="1193"/>
+        </scene>
+    </scenes>
+</document>

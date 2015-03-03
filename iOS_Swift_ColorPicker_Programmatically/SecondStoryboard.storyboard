@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tLI-E3-Rta">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Second View Controller-->
+        <scene sceneID="a3G-ru-fW8">
+            <objects>
+                <viewController id="tLI-E3-Rta" customClass="SecondViewController" customModule="iOS_Swift_ColorPicker_Programmatically" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kld-Lt-BIr"/>
+                        <viewControllerLayoutGuide type="bottom" id="d9y-aV-YcQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zai-Dz-4Sb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtB-n2-WfA">
+                                <rect key="frame" x="236" y="534" width="128" height="30"/>
+                                <state key="normal" title="Show Color Picker">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showColorPickerProgrammatically:" destination="tLI-E3-Rta" eventType="touchUpInside" id="xeY-yO-cu7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="KtB-n2-WfA" secondAttribute="centerX" id="3z2-cf-eSp"/>
+                            <constraint firstItem="d9y-aV-YcQ" firstAttribute="top" secondItem="KtB-n2-WfA" secondAttribute="bottom" constant="36" id="XYg-gq-DNh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4k-AN-py0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="419"/>
+        </scene>
+    </scenes>
+</document>

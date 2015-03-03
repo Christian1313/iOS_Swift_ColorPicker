@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  iOS_Swift_ColorPicker
+//  iOS_Swift_ColorPicker_Programmatically
 //
 //  Created by Christian Zimmermann on 03/03/15.
 //  Copyright (c) 2015 Christian Zimmermann. All rights reserved.
