@@ -87,6 +87,7 @@
 		D610BBB01AA604AD00864138 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D610BBB21AA604C300864138 /* SecondStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondStoryboard.storyboard; sourceTree = "<group>"; };
 		D610BBB41AA604E100864138 /* SwiftColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColorPickerViewController.swift; sourceTree = "<group>"; };
+		D610BBBD1AA7572800864138 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +120,7 @@
 		D610BB091AA601C700864138 = {
 			isa = PBXGroup;
 			children = (
+				D610BBBD1AA7572800864138 /* README.md */,
 				D610BB661AA603B300864138 /* iOS_Swift_ColorPicker_Storyboard */,
 				D610BB3C1AA6020C00864138 /* iOS_Swift_ColorPicker_Programmatically */,
 				D610BB8D1AA6040200864138 /* iOS_Swift_ColorPicker */,
@@ -590,6 +592,7 @@
 				D610BB591AA6020C00864138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D610BB811AA603B300864138 /* Build configuration list for PBXNativeTarget "iOS_Swift_ColorPicker_Storyboard" */ = {
 			isa = XCConfigurationList;
@@ -598,6 +601,7 @@
 				D610BB831AA603B300864138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D610BBA51AA6040200864138 /* Build configuration list for PBXNativeTarget "iOS_Swift_ColorPicker" */ = {
 			isa = XCConfigurationList;
@@ -606,6 +610,7 @@
 				D610BBA71AA6040200864138 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
