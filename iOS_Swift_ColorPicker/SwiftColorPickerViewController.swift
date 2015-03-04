@@ -52,7 +52,7 @@ public class SwiftColorPickerViewController: UIViewController
     
     /// Number of color blocks in x-direction.
     /// Color palette size is numberColorsInXDirection * numberColorsInYDirection
-    var numberColorsInYDirection: Int = 18 {
+    public var numberColorsInYDirection: Int = 18 {
         didSet {
             colorPaletteView.numColorsY = numberColorsInYDirection
         }
