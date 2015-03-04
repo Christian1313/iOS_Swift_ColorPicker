@@ -34,6 +34,7 @@ You can change the porpertis of the ``SwiftColorView``in the inspector.
 + add a delegate
 
 ``let colorPickerVC = SwiftColorPickerViewController()
+
         colorPickerVC.delegate = self``
 
 **Parameters:**
