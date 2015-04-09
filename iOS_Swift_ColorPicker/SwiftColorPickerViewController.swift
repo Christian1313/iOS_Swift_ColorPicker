@@ -65,10 +65,6 @@ public class SwiftColorPickerViewController: UIViewController
     private var selectionViewConstraintY: NSLayoutConstraint = NSLayoutConstraint()
     
     
-    public required override init() {
-        super.init()
-    }
-   
     public required override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -90,7 +86,7 @@ public class SwiftColorPickerViewController: UIViewController
         }
         else // used if in intervacebuilder the view property is set to the SwiftColorView
         {
-            colorPaletteView = self.view as SwiftColorView
+            colorPaletteView = self.view as! SwiftColorView
         }
         coloredBorderWidth = colorPaletteView.coloredBorderWidth
         numberColorsInXDirection = colorPaletteView.numColorsX
@@ -124,12 +120,12 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     
-    public override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
+    public override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
         
-        if let touch: AnyObject = touches.allObjects.last
+        if let touch = touches.first as? UITouch
         {
-            let t = touch as UITouch
+            let t = touch
             let point = t.locationInView(colorPaletteView)
             positionSelectorViewWithPoint(point)
             colorSelectionView.alpha = 1.0
@@ -174,7 +170,7 @@ public class SwiftColorPickerViewController: UIViewController
         {
             if constraint.constant == CGFloat(pad)
             {
-                selectionViewConstraintX = constraint as NSLayoutConstraint
+                selectionViewConstraintX = constraint as! NSLayoutConstraint
                 break
             }
         }
@@ -182,7 +178,7 @@ public class SwiftColorPickerViewController: UIViewController
         {
             if constraint.constant == CGFloat(pad)
             {
-                selectionViewConstraintY = constraint as NSLayoutConstraint
+                selectionViewConstraintY = constraint as! NSLayoutConstraint
                 break
             }
         }

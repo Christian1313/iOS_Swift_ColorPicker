@@ -24,7 +24,7 @@ class FirstViewController: UIViewController, UIPopoverPresentationControllerDele
         if let identifier = segue.identifier
         {
             // adding as delegate for color selection
-            let colorPickerVC = segue.destinationViewController as SwiftColorPickerViewController
+            let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
             colorPickerVC.delegate = self
             
             if let popPresentationController = colorPickerVC.popoverPresentationController {
