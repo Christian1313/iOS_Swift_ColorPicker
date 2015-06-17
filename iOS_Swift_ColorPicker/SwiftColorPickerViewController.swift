@@ -20,13 +20,15 @@ public protocol SwiftColorPickerDelegate
 /// The delegate (SwiftColorPickerDelegate) will be notified about the color selection change.
 /// The user can simply tap a color or pan over the palette. When panning over the palette a round preview
 /// view will appear and show the current selected colot.
-public class SwiftColorPickerViewController: UIViewController
+final public class SwiftColorPickerViewController: UIViewController
 {
     /// Delegate of the SwiftColorPickerViewController
     public var delegate: SwiftColorPickerDelegate?
     
     /// Width of the edge around the color palette.
-    /// The border change the color with the selection by the user. 
+    ///
+    /// The border change the color with the selection by the user.
+    ///
     /// Default is 10
     public var coloredBorderWidth:Int = 10 {
         didSet {
@@ -35,7 +37,8 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     /// Diameter of the circular view, which preview the color selection.
-    /// The preview will apear at the fimnger tip of the users touch and show se current selected color.
+    ///
+    /// The preview will appear at the finger tip of the users touch and show the current selected color.
     public var colorPreviewDiameter:Int = 35 {
         didSet {
             setConstraintsForColorPreView()
@@ -43,7 +46,8 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     /// Number of color blocks in x-direction.
-    /// Color palette size is numberColorsInXDirection * numberColorsInYDirection
+    ///
+    /// Color palette size is `numberColorsInXDirection * numberColorsInYDirection`
     public var numberColorsInXDirection: Int = 10 {
         didSet {
             colorPaletteView.numColorsX = numberColorsInXDirection
@@ -51,7 +55,8 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     /// Number of color blocks in x-direction.
-    /// Color palette size is numberColorsInXDirection * numberColorsInYDirection
+    ///
+    /// Color palette size is `numberColorsInXDirection * numberColorsInYDirection`
     public var numberColorsInYDirection: Int = 18 {
         didSet {
             colorPaletteView.numColorsY = numberColorsInYDirection
@@ -91,7 +96,6 @@ public class SwiftColorPickerViewController: UIViewController
         coloredBorderWidth = colorPaletteView.coloredBorderWidth
         numberColorsInXDirection = colorPaletteView.numColorsX
         numberColorsInYDirection = colorPaletteView.numColorsY
-        
     }
     
     public override func viewDidLoad() {
@@ -193,7 +197,7 @@ public class SwiftColorPickerViewController: UIViewController
     {
         let colorSelected = colorPaletteView.colorAtPoint(point)
         delegate?.colorSelectionChanged(selectedColor: colorSelected)
-        self.view.backgroundColor = colorSelected
+        //self.view.backgroundColor = colorSelected
         colorSelectionView.backgroundColor = colorPaletteView.colorAtPoint(point)
         selectionViewConstraintX.constant = (point.x-colorSelectionView.bounds.size.width/2)
         selectionViewConstraintY.constant = (point.y-1.2*colorSelectionView.bounds.size.height)
@@ -206,10 +210,14 @@ public class SwiftColorPickerViewController: UIViewController
     }
 }
 
-@IBDesignable public class SwiftColorView: UIView
+/// UIView Subclass which displays a colors in little blocks.
+@IBDesignable final public class SwiftColorView: UIView
 {
     /// Number of color blocks in x-direction.
-    /// Color palette size is numColorsX * numColorsY
+    ///
+    /// Color palette size is `numColorsX * numColorsY`
+    ///
+    /// `Default` is 10
     @IBInspectable public var numColorsX:Int =  10 {
         didSet {
             setNeedsDisplay()
@@ -217,7 +225,10 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     /// Number of color blocks in x-direction.
-    /// Color palette size is numColorsX * numColorsY
+    ///
+    /// Color palette size is `numColorsX * numColorsY`
+    ///
+    /// `Default` is 18
     @IBInspectable public var numColorsY:Int = 18 {
         didSet {
             setNeedsDisplay()
@@ -225,19 +236,26 @@ public class SwiftColorPickerViewController: UIViewController
     }
     
     /// Width of the edge around the color palette.
+    ///
     /// The border change the color with the selection by the user.
-    /// Default is 10
+    ///
+    /// `Default` is 10
     @IBInspectable public var coloredBorderWidth:Int = 10 {
         didSet {
             setNeedsDisplay()
         }
     }
     
+    /// Wether or not the grid between the blocks should be visible.
+    ///
+    /// `Default` is false
     @IBInspectable public var showGridLines:Bool = false {
         didSet {
             setNeedsDisplay()
         }
     }
+    
+    
     
     public override func drawRect(rect: CGRect)
     {
@@ -300,7 +318,6 @@ public class SwiftColorPickerViewController: UIViewController
         let pS = patternSize()
         let w = pS.w
         let h = pS.h
-        
         let x = (point.x-CGFloat(coloredBorderWidth))/w
         let y = (point.y-CGFloat(coloredBorderWidth))/h
         return colorForRectAt(Int(x), y:Int(y))
