@@ -35,9 +35,7 @@ class SecondViewController: UIViewController, UIPopoverPresentationControllerDel
         popVC.delegate = self;
         
         self.presentViewController(colorPickerVC, animated: true, completion: {
-            
-            
-            println("Reade<");
+            print("Reade<");
         })
     }
     

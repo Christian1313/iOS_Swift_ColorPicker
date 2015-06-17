@@ -21,7 +21,7 @@ class FirstViewController: UIViewController, UIPopoverPresentationControllerDele
     // MARK: - Segue Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if let identifier = segue.identifier
+        if let _ = segue.identifier
         {
             // adding as delegate for color selection
             let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
