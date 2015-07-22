@@ -74,7 +74,7 @@ final public class SwiftColorPickerViewController: UIViewController
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
