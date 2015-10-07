@@ -6,7 +6,7 @@
 ## Overview
 The Color Picker constist of a ``SwiftColorView`` and a ``SwiftColorPickerViewController``. By Tapping or panning on the view the ``SwiftColorPickerDelegate`` is notfied about the changed color.
 
-To customize the colors displayed by the ``SwiftColorPickerViewController`` implement the ``SwiftColorPickerDataSource`` protocoll and the class as `dataSource` of the  ``SwiftColorPickerViewController``.
+To customize the colors displayed by the ``SwiftColorPickerViewController`` implement the ``SwiftColorPickerDataSource`` protocoll and the caller class as the `dataSource` of the  ``SwiftColorPickerViewController``.
 
 In the Repository are two Example projects, which show how to utilize the ``SwiftColorPickerViewController``. 
 
