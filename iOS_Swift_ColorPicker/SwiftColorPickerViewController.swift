@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Christian Zimmermann. All rights reserved.
 //
 
-// Note: The 'public' infront of the classe and property declaration is needed, 
+// Note: The 'public' infront of the classe and property declaration is needed,
 //       because the ViewController and the View is part of an framework.
 
 import UIKit
@@ -14,6 +14,11 @@ import UIKit
 public protocol SwiftColorPickerDelegate
 {
     func colorSelectionChanged(selectedColor color: UIColor)
+}
+
+public protocol SwiftColorPickerDataSource: class
+{
+    func colorForPalletIndex(x: Int, y: Int, numXStripes: Int, numYStripes: Int) -> UIColor
 }
 
 /// Color Picker ViewController. Let the user pick a color from a 2D color palette.
@@ -24,6 +29,13 @@ final public class SwiftColorPickerViewController: UIViewController
 {
     /// Delegate of the SwiftColorPickerViewController
     public var delegate: SwiftColorPickerDelegate?
+    
+    /// Data Source of the SwiftColorPickerViewController
+    public weak var dataSource: SwiftColorPickerDataSource? {
+        didSet {
+            colorPaletteView.viewDataSource = dataSource
+        }
+    }
     
     /// Width of the edge around the color palette.
     ///
@@ -122,6 +134,7 @@ final public class SwiftColorPickerViewController: UIViewController
         panGr.maximumNumberOfTouches = 1
         colorPaletteView.addGestureRecognizer(tapGr)
         colorPaletteView.addGestureRecognizer(panGr)
+        colorPaletteView.viewDataSource = dataSource
     }
     
     
@@ -151,7 +164,7 @@ final public class SwiftColorPickerViewController: UIViewController
             startHidingSelectionView()
         }
     }
-
+    
     private func setConstraintsForColorPreView()
     {
         colorPaletteView.removeConstraints(colorPaletteView.constraints)
@@ -255,7 +268,7 @@ final public class SwiftColorPickerViewController: UIViewController
         }
     }
     
-    
+    weak var viewDataSource: SwiftColorPickerDataSource?
     
     public override func drawRect(rect: CGRect)
     {
@@ -295,22 +308,28 @@ final public class SwiftColorPickerViewController: UIViewController
     
     private func colorForRectAt(x: Int, y: Int) -> UIColor
     {
-        var hue:CGFloat = CGFloat(x) / CGFloat(numColorsX)
-        var fillColor = UIColor.whiteColor()
-        if (y==0)
-        {
-            if (x==(numColorsX-1))
+        
+        if let ds = viewDataSource {
+            return ds.colorForPalletIndex(x, y: y, numXStripes: numColorsX, numYStripes: numColorsY)
+        } else {
+            
+            var hue:CGFloat = CGFloat(x) / CGFloat(numColorsX)
+            var fillColor = UIColor.whiteColor()
+            if (y==0)
             {
-                hue = 1.0;
+                if (x==(numColorsX-1))
+                {
+                    hue = 1.0;
+                }
+                fillColor = UIColor(white: hue, alpha: 1.0);
             }
-            fillColor = UIColor(white: hue, alpha: 1.0);
+            else
+            {
+                let sat:CGFloat = CGFloat(1.0)-CGFloat(y-1) / CGFloat(numColorsY)
+                fillColor = UIColor(hue: hue, saturation: sat, brightness: 1.0, alpha: 1.0)
+            }
+            return fillColor
         }
-        else
-        {
-            let sat:CGFloat = CGFloat(1.0)-CGFloat(y-1) / CGFloat(numColorsY)
-            fillColor = UIColor(hue: hue, saturation: sat, brightness: 1.0, alpha: 1.0)
-        }
-        return fillColor
     }
     
     func colorAtPoint(point: CGPoint) -> UIColor
@@ -340,3 +359,14 @@ final public class SwiftColorPickerViewController: UIViewController
     
 }
 
+public extension UIColor {
+
+    /// Random `UIColor`
+    class func randomColor() -> UIColor {
+        let r = CGFloat(arc4random_uniform(256))/CGFloat(255)
+        let g = CGFloat(arc4random_uniform(256))/CGFloat(255)
+        let b = CGFloat(arc4random_uniform(256))/CGFloat(255)
+        let a = CGFloat(arc4random_uniform(256))/CGFloat(255)
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+}

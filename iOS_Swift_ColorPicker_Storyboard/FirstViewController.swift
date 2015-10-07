@@ -9,7 +9,7 @@
 import UIKit
 import iOS_Swift_ColorPicker // framework with the Color Picker View Controller. XOu can simply tak the
 
-class FirstViewController: UIViewController, UIPopoverPresentationControllerDelegate, SwiftColorPickerDelegate
+class FirstViewController: UIViewController, UIPopoverPresentationControllerDelegate, SwiftColorPickerDelegate, SwiftColorPickerDataSource
 {
 
     override func viewDidLoad() {
@@ -26,6 +26,7 @@ class FirstViewController: UIViewController, UIPopoverPresentationControllerDele
             // adding as delegate for color selection
             let colorPickerVC = segue.destinationViewController as! SwiftColorPickerViewController
             colorPickerVC.delegate = self
+            colorPickerVC.dataSource = self
             
             if let popPresentationController = colorPickerVC.popoverPresentationController {
                 popPresentationController.delegate = self
@@ -45,12 +46,51 @@ class FirstViewController: UIViewController, UIPopoverPresentationControllerDele
         return UIModalPresentationStyle.None
     }
     
+    // MARK: - Color Matrix (only for test case)
+    var colorMatrix = [ [UIColor]() ]
+    private func fillColorMatrix(numX: Int, _ numY: Int) {
+        colorMatrix.removeAll()
+        if numX > 0 && numY > 0 {
+            
+            for _ in 0..<numX {
+                var colInX = [UIColor]()
+                for _ in 0..<numY {
+                    colInX += [UIColor.randomColor()]
+                }
+                colorMatrix += [colInX]
+            }
+        }
+    }
+    
+    
+    // MARK: - Swift Color Picker Data Source
+    
+    func colorForPalletIndex(x: Int, y: Int, numXStripes: Int, numYStripes: Int) -> UIColor {
+        if colorMatrix.count > x  {
+            let colorArray = colorMatrix[x]
+            if colorArray.count > y {
+                return colorArray[y]
+            } else {
+                fillColorMatrix(numXStripes,numYStripes)
+                return colorForPalletIndex(x, y:y, numXStripes: numXStripes, numYStripes: numYStripes)
+            }
+        } else {
+            fillColorMatrix(numXStripes,numYStripes)
+            return colorForPalletIndex(x, y:y, numXStripes: numXStripes, numYStripes: numYStripes)
+        }
+
+    }
+    
+    
+    
     // MARK: Color Picker Delegate
     
     func colorSelectionChanged(selectedColor color: UIColor) {
     
         self.view.backgroundColor = color
     }
+    
+    
     
     
     
