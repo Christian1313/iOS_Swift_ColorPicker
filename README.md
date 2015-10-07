@@ -4,7 +4,9 @@
 ![ColorPicker ScreenShot](../master/Screenshots/Image01_Thumb.png)
 
 ## Overview
-The Color Picker constist of a ``SwiftColorView`` and a ``SwiftColorPickerViewController``. By Tapping or panning on the view the ``SwiftColorPickerDelegate``is notfied about the changed color.
+The Color Picker constist of a ``SwiftColorView`` and a ``SwiftColorPickerViewController``. By Tapping or panning on the view the ``SwiftColorPickerDelegate`` is notfied about the changed color.
+
+To customize the colors displayed by the ``SwiftColorPickerViewController`` implement the ``SwiftColorPickerDataSource`` protocoll and the class as `dataSource` of the  ``SwiftColorPickerViewController``.
 
 In the Repository are two Example projects, which show how to utilize the ``SwiftColorPickerViewController``. 
 
@@ -36,6 +38,10 @@ You can change the porpertis of the ``SwiftColorView``in the inspector.
 ``let colorPickerVC = SwiftColorPickerViewController()``
 
 ``colorPickerVC.delegate = self``
+
++ (optional) add a dataSource
+
+``colorPickerVC.dataSource = self``
 
 **Parameters:**
 
