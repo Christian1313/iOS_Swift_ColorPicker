@@ -59,8 +59,17 @@ You can change the porpertis of the ``SwiftColorView``in the inspector.
           
 + Diameter of the circular view, which preview the color selection. The preview will apear at the fimnger tip of the users touch and show se current selected color. 
 
-	``colorPickerVC.colorPreviewDiameter = 44;``      
-       
+	``colorPickerVC.colorPreviewDiameter = 44;``     
+
+### Custom keyboard implement in a Storyboard
+
+## Usage
+Copy the ``SwiftColorPickerView.swift``into your project. 
+Copy the ``ColorPickerTextField.swift``into your project.
+
+### Add ViewController in a Storyboard
++ Add a View Controller with a textField (or any element that acepts an inputView (ie keyboard))
++ Set the element's' Class to ``ColorPickerTextField``
       
 ## More
 

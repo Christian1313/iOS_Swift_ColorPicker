@@ -69,6 +69,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2392DA981BC84154002A7110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2392DA991BC84154002A7110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2392DA9B1BC84154002A7110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2392DA9D1BC84154002A7110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2392DA9E1BC84154002A7110 /* CommonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
+		2392DAA01BC84154002A7110 /* ColorPickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerTextField.swift; sourceTree = "<group>"; };
+		2392DAA11BC84154002A7110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2392DAA31BC84154002A7110 /* SwiftColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftColorPickerView.swift; sourceTree = "<group>"; };
+		2392DAA41BC84154002A7110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D610BB3B1AA6020C00864138 /* iOS_Swift_ColorPicker_Programmatically.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Swift_ColorPicker_Programmatically.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D610BB3E1AA6020C00864138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D610BB3F1AA6020C00864138 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +126,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2392DA971BC84154002A7110 /* iOS_Swift_ColorPicker_CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2392DA981BC84154002A7110 /* AppDelegate.swift */,
+				2392DA991BC84154002A7110 /* Assets.xcassets */,
+				2392DA9A1BC84154002A7110 /* LaunchScreen.storyboard */,
+				2392DA9C1BC84154002A7110 /* Main.storyboard */,
+				2392DA9E1BC84154002A7110 /* CommonExtensions.swift */,
+				2392DA9F1BC84154002A7110 /* CustomKeyboard */,
+				2392DAA11BC84154002A7110 /* Info.plist */,
+				2392DAA21BC84154002A7110 /* SwiftColorPickerView */,
+				2392DAA41BC84154002A7110 /* ViewController.swift */,
+			);
+			path = iOS_Swift_ColorPicker_CustomKeyboard;
+			sourceTree = "<group>";
+		};
+		2392DA9F1BC84154002A7110 /* CustomKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2392DAA01BC84154002A7110 /* ColorPickerTextField.swift */,
+			);
+			path = CustomKeyboard;
+			sourceTree = "<group>";
+		};
+		2392DAA21BC84154002A7110 /* SwiftColorPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				2392DAA31BC84154002A7110 /* SwiftColorPickerView.swift */,
+			);
+			path = SwiftColorPickerView;
+			sourceTree = "<group>";
+		};
 		D610BB091AA601C700864138 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +165,7 @@
 				D610BB661AA603B300864138 /* iOS_Swift_ColorPicker_Storyboard */,
 				D610BB3C1AA6020C00864138 /* iOS_Swift_ColorPicker_Programmatically */,
 				D610BB8D1AA6040200864138 /* iOS_Swift_ColorPicker */,
+				2392DA971BC84154002A7110 /* iOS_Swift_ColorPicker_CustomKeyboard */,
 				D610BB131AA601C700864138 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -383,6 +425,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2392DA9A1BC84154002A7110 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2392DA9B1BC84154002A7110 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2392DA9C1BC84154002A7110 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2392DA9D1BC84154002A7110 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		D610BB481AA6020C00864138 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
